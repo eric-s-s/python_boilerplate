@@ -24,7 +24,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        token: ${{ secrets.PAT }}
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         commit-message: Update dependencies
         title: Update dependencies
         branch: update-dependencies
