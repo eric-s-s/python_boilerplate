@@ -1,4 +1,4 @@
-name: Example
+name: Lint and Test
 on:
   push:
     branches: [ "master" ]
@@ -7,7 +7,7 @@ on:
 
 jobs:
   basic-ci:
-    name: python
+    name: run linting and testing
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
