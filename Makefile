@@ -11,3 +11,8 @@ install: check-requirements
 upgrade:
 	uv lock --upgrade
 .PHONY: upgrade	
+
+
+test:
+	uv run pytest
+.PHONY: test	
