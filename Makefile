@@ -12,6 +12,7 @@ install: check-requirements
 
 upgrade:
 	uv lock --upgrade
+	uv run pre-commit autoupdate
 .PHONY: upgrade
 
 
