@@ -1,18 +1,25 @@
 check-requirements:
-	uv --version 
-.PHONY: check-requirements	
+	uv --version
+.PHONY: check-requirements
 
 
 install: check-requirements
 	uv python install
 	uv sync --locked --all-groups
-.PHONY: install	
+	uv run pre-commit install
+.PHONY: install
+
 
 upgrade:
 	uv lock --upgrade
-.PHONY: upgrade	
+.PHONY: upgrade
+
+
+lint:
+	uv run pre-commit run -a
+.PHONY: lint
 
 
 test:
 	uv run pytest
-.PHONY: test	
+.PHONY: test
