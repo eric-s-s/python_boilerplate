@@ -1,0 +1,23 @@
+name: Lint and Test
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    types: ["opened", "reopened", "synchronize"]
+
+jobs:
+  basic-ci:
+    name: run linting and testing
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        version: "0.7.9"
+        enable-cache: true
+        cache-dependency-glob: "uv.lock"
+
+    - name: Install Dependencies
+      run: make install    
