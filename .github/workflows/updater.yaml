@@ -32,6 +32,8 @@ jobs:
         commit-message: Update dependencies
         title: Update dependencies
         branch: update-dependencies
+        assigness:
+        - eric-s-s
         body: |
           - Dependency updates
 
