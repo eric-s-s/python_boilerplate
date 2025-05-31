@@ -9,9 +9,15 @@ install: check-requirements
 	uv run pre-commit install
 .PHONY: install
 
+
 upgrade:
 	uv lock --upgrade
 .PHONY: upgrade
+
+
+lint:
+	uv run pre-commit run -a
+.PHONY: lint
 
 
 test:

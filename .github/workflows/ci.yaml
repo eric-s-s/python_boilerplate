@@ -20,4 +20,4 @@ jobs:
         cache-dependency-glob: "uv.lock"
 
     - name: Install Dependencies
-      run: make install    
+      run: make install
