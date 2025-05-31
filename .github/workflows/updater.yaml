@@ -1,7 +1,5 @@
 name: Update Dependencies
 on:
-  push:
-    branches: [ "main" ]
   # every monday at 10 AM
   schedule:
   - cron:  '0 10 * * 1'
