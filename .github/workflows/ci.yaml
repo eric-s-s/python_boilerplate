@@ -16,7 +16,7 @@ jobs:
       uses: astral-sh/setup-uv@v5
       with:
         version: "0.7.9"
-        enable-cach: true
+        enable-cache: true
         cache-dependency-glob: "uv.lock"
 
     - name: Install Dependencies
