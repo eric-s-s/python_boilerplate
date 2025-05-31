@@ -2,11 +2,10 @@ name: Update Dependencies
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    types: ["opened", "reopened", "synchronize"]
-
+  # every monday at 10 AM
   schedule:
   - cron:  '0 10 * * 1'
+
 jobs:
   update-dep:
     runs-on: ubuntu-latest
