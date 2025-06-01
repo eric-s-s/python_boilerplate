@@ -64,3 +64,36 @@ Bypass checks on your commit with the `-n` flag. So instead of
 ### Github Actions
 
 This repo contains two actions
+
+- Lint And Test: Run linter and pytest on PRs and merge to main
+- Update Dependencies: Run a weekly update job and open PR on changes
+
+
+### Repo Settings
+
+#### General Repo Settings - Pull Request Section
+
+`Pull Request` section let's you specify what kind of PR merging to allow
+I tend to only do  `Allow squash merging` with `Default commit message`
+set to `Pull request title and commit details`.
+
+It also contains the `Automatically delete head branches`
+
+#### Branch Rulesets
+
+You should be able to view the branch rulesets for this branch
+and export them and import someplace else or just copy them.
+
+The required status checks part is a bit annoying. You need to pick
+from an auto-generated list and you might need to run the action first
+
+For the job below I've seen it auto-complete on either
+
+- basic-ci
+- run linting and testing
+
+```
+jobs:
+  basic-ci:
+    name: run linting and testing
+```
