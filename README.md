@@ -68,9 +68,9 @@ github actions must always be located in `.github/workflows`
 This repo contains two actions
 
 - Lint And Test: Run linter and pytest on PRs and merge to main.
-  located in: .github/workflows/ci.yaml
+  Located in: `.github/workflows/ci.yaml`
 - Update Dependencies: Run a weekly update job and open PR on changes.
-  located in: .github/workflows/updater.yaml
+  Located in: `.github/workflows/updater.yaml`
 
 You probably want to delete the second one unless you like weekly
 updates to your package. Certainly remove me (eric-s-s) as the assignee.
