@@ -72,9 +72,9 @@ This repo contains two actions
 - Update Dependencies: Run a weekly update job and open PR on changes.
   Located in: `.github/workflows/updater.yaml`
 
-#### Changes to Update Dependencies
+#### Using the Update Dependencies Action
 
-**If you keep this, remove `eric-s-s` as an assignee in `updater.yaml`!**
+**If you use this action remove `eric-s-s` as an assignee in `updater.yaml`!**
 
 This runs updates to all libraries on a weekly basis. If there are file
 changes, it automatically creates a PR and assigns me (eric-s-s) to the PR.
