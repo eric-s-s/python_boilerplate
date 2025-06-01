@@ -68,6 +68,26 @@ This repo contains two actions
 - Lint And Test: Run linter and pytest on PRs and merge to main
 - Update Dependencies: Run a weekly update job and open PR on changes
 
+You probably want to delete the second one unless you like weekly
+updates to your package. Certainly remove me (eric-s-s) as the assignee.
+The other part you'll need to deal with, if you're doing permissions is
+updating the personal access token and setting up secrets in your repo.
+
+#### Personal Access Token Management for PR actions
+
+**Use the new fine-grained access tokens!** You have no good reason
+not to, and they are more secure.
+
+The `create-pull-request` github action explains the following for
+tokens and their requirements. I've also included the example I used.
+
+- https://github.com/peter-evans/create-pull-request?tab=readme-ov-file#token
+- https://github.com/peter-evans/create-pull-request/blob/main/docs/examples.md#update-npm-dependencies
+
+And GitHub explains about personal access tokens and repo secrets here:
+
+- https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token
+- https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository
 
 ### Repo Settings
 
@@ -87,7 +107,7 @@ and export them and import someplace else or just copy them.
 The required status checks part is a bit annoying. You need to pick
 from an auto-generated list and you might need to run the action first
 
-For the job below I've seen it auto-complete on either
+For the github action below I've seen it auto-complete on either
 
 - basic-ci
 - run linting and testing
