@@ -14,6 +14,9 @@ I start a new python project.
 - github actions: There are basic github action for CI
 - Makefile: a convenient way to run scripts
 
+You can use this repo as a template.
+see: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+
 ## Dev Install
 
 This requires [uv package manager](https://docs.astral.sh/uv/getting-started/installation/)
