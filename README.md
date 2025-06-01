@@ -72,10 +72,14 @@ This repo contains two actions
 - Update Dependencies: Run a weekly update job and open PR on changes.
   Located in: `.github/workflows/updater.yaml`
 
-You probably want to delete the second one unless you like weekly
-updates to your package. Certainly remove me (eric-s-s) as the assignee.
-The other part you'll need to deal with, if you're doing permissions is
-updating the personal access token and setting up secrets in your repo.
+#### Changes to Update Dependencies
+
+**If you keep this, remove `eric-s-s` as an assignee in `updater.yaml`!**
+
+This runs updates to all libraries on a weekly basis. If there are file
+changes, it automatically creates a PR and assigns me (eric-s-s) to the PR.
+If you want something like this you'll need to do some updating. Including
+from the next section with personal access token management.
 
 #### Personal Access Token Management for PR actions
 
