@@ -18,7 +18,9 @@ dev = [
 line-length = 100
 
 [tool.ruff.lint]
-select = [
-    # isort
-    "I",
+extend-select = [
+    "I", # isort
 ]
+
+[tool.ruff.lint.isort]
+force-single-line = true
