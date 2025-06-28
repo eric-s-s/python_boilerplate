@@ -128,3 +128,14 @@ jobs:
   basic-ci:
     name: run linting and testing
 ```
+
+## Random Helpful Notes
+
+### Pycharm Settings
+
+For some reason, Pycharm uses an incorrect json schema for `.github/dependabot.yml`. You can set
+this manually by going to:
+
+`Settings -> Languages & Frameworks -> Schemas and DTDs -> JSON Schema Mappings` and adding
+a mapping for https://www.schemastore.org/dependabot-2.0.json with JSON version 7 pointing to
+your dependabot file.
