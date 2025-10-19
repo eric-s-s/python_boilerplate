@@ -10,18 +10,30 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install uv
+    - name: Install latest uv
       uses: astral-sh/setup-uv@v6
       with:
-        version: "0.8.13"
         enable-cache: true
         cache-dependency-glob: "uv.lock"
+
+    - name: get latest uv version
+      id: latest-uv
+      run: |
+        echo "uv_version=$(uv self version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')" >> "$GITHUB_OUTPUT"
 
     - name: Install Dependencies
       run: make install
 
     - name: Run Upgrades
       run: make upgrade
+
+    - name: upgrade UV_VERSION file
+      run: |
+        echo ${{ steps.latest-uv.outputs.uv_version }} > UV_VERSION
+
+    - name: safe lint
+      run: make lint
+      continue-on-error: true
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
