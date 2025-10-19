@@ -47,6 +47,7 @@ You can run most commands you want from the `Makefile`
 - `make install`
 - `make lint`
 - `make test`
+- `make build` to build the package
 - `make upgrade` to upgrade all of the libraries and pre-commit
 
 ### With `uv run`
@@ -54,6 +55,8 @@ You can run most commands you want from the `Makefile`
 Any commands that would run in your envronment, you can do with a `uv run`
 prefix.  So `pytest`, `ipython`, `pre-commit` just add `uv run <command> <args>`
 like `uv run pytest -s -v --durations=10`
+
+If you have built the package, you should be able to `uv run demo-script`
 
 ### Pre-Commit
 
