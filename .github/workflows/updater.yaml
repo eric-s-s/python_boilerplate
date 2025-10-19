@@ -28,8 +28,8 @@ jobs:
     - name: update uv
       id: latest-uv
       run: |
-        pip show uv
         uv self version
+        uv self version --help
         echo "uv_version_json=$(uv self version --output-format json)" >> "$GITHUB_OUTPUT"
     - name: Install Dependencies
       run: make install
