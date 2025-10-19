@@ -22,14 +22,12 @@ jobs:
     - name: Install uv
       uses: astral-sh/setup-uv@v6
       with:
-        version: ${{ steps.current-uv.outputs.uv_version }}
         enable-cache: true
         cache-dependency-glob: "uv.lock"
 
     - name: update uv
       id: latest-uv
       run: |
-        pip install --upgrade uv
         echo "uv_version_json=$(uv self version --output-format json)" >> "$GITHUB_OUTPUT"
     - name: Install Dependencies
       run: make install
