@@ -5,7 +5,6 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["main/"]
 
-
 [project]
 name = "python-boilerplate"
 version = "0.1.0"
@@ -16,7 +15,6 @@ dependencies = []
 
 [project.scripts]
 demo-script = "main.main:demo"
-
 
 [dependency-groups]
 dev = [
