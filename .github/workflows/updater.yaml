@@ -1,27 +1,44 @@
 name: Update Dependencies
-on:
+#on:
   # every monday at 10 AM
-  schedule:
-  - cron:  '0 10 * * 1'
+ # schedule:
+ # - cron:  '0 10 * * 1'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    types: ["opened", "reopened", "synchronize"]
 
 jobs:
   update-dep:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: get current uv version
+      id: current-uv
+      run: echo "uv_version=$(cat UV_VERSION)" >> "$GITHUB_OUTPUT"
 
     - name: Install uv
       uses: astral-sh/setup-uv@v6
       with:
-        version: "0.8.13"
+        version: ${{ steps.current-uv.outputs.uv_version }}
         enable-cache: true
         cache-dependency-glob: "uv.lock"
 
+    - name: update uv
+      id: latest-uv
+      run: |
+        uv self update
+        echo "uv_version_json=$(uv self version --output-format json)" >> "$GITHUB_OUTPUT"
     - name: Install Dependencies
       run: make install
 
     - name: Run Upgrades
       run: make upgrade
+
+    - name: upgrade UV version
+      run: echo ${{ fromJson(steps.latest-uv.outputs.uv_version_json).version }} > UV_VERSION
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
