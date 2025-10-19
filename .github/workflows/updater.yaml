@@ -28,7 +28,7 @@ jobs:
     - name: update uv
       id: latest-uv
       run: |
-        uv self version
+        uv self version | grep -oE "[0-9]+\.[0-9]+\.[0-9]+"
         uv self version --help
         echo "uv_version_json=$(uv self version --output-format json)" >> "$GITHUB_OUTPUT"
     - name: Install Dependencies
