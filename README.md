@@ -115,8 +115,13 @@ It also contains the `Automatically delete head branches`
 
 #### Branch Rulesets
 
-You should be able to view the branch rulesets for this branch
-and export them and import someplace else or just copy them.
+rulesets are available in the repo-rulesets directory. You can import them in your repo
+in setting > general > code and automation > rules > rulesets
+
+the green `New ruleset` button on the right has a drop-down arrow that allows you to
+import. It should just work, but if it doesn't ..
+
+#### Branch Ruleset Required Status Checks
 
 The required status checks part is a bit annoying. You need to pick
 from an auto-generated list and you might need to run the action first
