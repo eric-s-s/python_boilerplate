@@ -6,9 +6,7 @@ name: Update Dependencies
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    types: ["opened", "reopened", "synchronize"]
+    branches: [ "eric-s-s/issue-26/update-uv" ]
 
 jobs:
   update-dep:
