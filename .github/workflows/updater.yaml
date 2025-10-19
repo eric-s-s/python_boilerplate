@@ -38,6 +38,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
+        base: eric-s-s/issue-26/update-uv
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         commit-message: Update dependencies
         title: Update dependencies
