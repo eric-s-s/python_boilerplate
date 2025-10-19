@@ -1,12 +1,8 @@
 name: Update Dependencies
-#on:
-  # every monday at 10 AM
- # schedule:
- # - cron:  '0 10 * * 1'
-
 on:
-  push:
-    branches: [ "eric-s-s/issue-26/update-uv" ]
+  # every monday at 10 AM
+  schedule:
+  - cron:  '0 10 * * 1'
 
 jobs:
   update-dep:
@@ -14,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install uv
+    - name: Install latest uv
       uses: astral-sh/setup-uv@v6
       with:
         enable-cache: true
@@ -24,13 +20,14 @@ jobs:
       id: latest-uv
       run: |
         echo "uv_version=$(uv self version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')" >> "$GITHUB_OUTPUT"
+
     - name: Install Dependencies
       run: make install
 
     - name: Run Upgrades
       run: make upgrade
 
-    - name: upgrade UV version
+    - name: upgrade UV_VERSION file
       run: |
         echo ${{ steps.latest-uv.outputs.uv_version }} > UV_VERSION
 
@@ -41,7 +38,6 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        base: eric-s-s/issue-26/update-uv
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         commit-message: Update dependencies
         title: Update dependencies
