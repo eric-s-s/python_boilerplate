@@ -24,3 +24,8 @@ lint:
 test:
 	uv run pytest
 .PHONY: test
+
+
+build:
+	uv build
+.PHONY: build
