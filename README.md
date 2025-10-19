@@ -116,7 +116,7 @@ It also contains the `Automatically delete head branches`
 #### Branch Rulesets
 
 rulesets are available in the repo-rulesets directory. You can import them in your repo
-in setting > general > code and automation > rules > rulesets
+in `settings > general > code and automation > rules > rulesets`
 
 the green `New ruleset` button on the right has a drop-down arrow that allows you to
 import. It should just work, but if it doesn't ..
