@@ -15,9 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: get current uv version
-      id: current-uv
-      run: echo "uv_version=$(cat UV_VERSION)" >> "$GITHUB_OUTPUT"
 
     - name: Install uv
       uses: astral-sh/setup-uv@v6
@@ -25,12 +22,10 @@ jobs:
         enable-cache: true
         cache-dependency-glob: "uv.lock"
 
-    - name: update uv
+    - name: get latest uv version
       id: latest-uv
       run: |
-        uv self version | grep -oE "[0-9]+\.[0-9]+\.[0-9]+"
-        uv self version --help
-        echo "uv_version_json=$(uv self version --output-format json)" >> "$GITHUB_OUTPUT"
+        echo "uv_version=$(uv self version | grep -oE \"[0-9]+\.[0-9]+\.[0-9]+\")" >> "$GITHUB_OUTPUT"
     - name: Install Dependencies
       run: make install
 
@@ -38,7 +33,7 @@ jobs:
       run: make upgrade
 
     - name: upgrade UV version
-      run: echo ${{ fromJson(steps.latest-uv.outputs.uv_version_json).version }} > UV_VERSION
+      run: echo ${{ steps.latest-uv.outputs.uv_version }} > UV_VERSION
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
