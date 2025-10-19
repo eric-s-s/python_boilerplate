@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
     - name: get UV version
       id: uv-version
       run: echo "uv_version=$(cat UV_VERSION)" >> "$GITHUB_OUTPUT"
+
     - name: Install uv
       uses: astral-sh/setup-uv@v6
       with:
