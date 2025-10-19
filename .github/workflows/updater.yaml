@@ -33,7 +33,7 @@ jobs:
       run: make upgrade
 
     - name: upgrade UV version
-      run: echo ${{ steps.latest-uv.outputs.uv_version }} > UV_VERSION
+      run: echo -e "${{ steps.latest-uv.outputs.uv_version }}\n" > UV_VERSION
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
