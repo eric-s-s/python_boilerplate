@@ -12,6 +12,7 @@ dev = [
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
     "ruff>=0.11.12",
+    "ty>=0.0.1a19",
 ]
 
 [tool.ruff]
@@ -24,3 +25,6 @@ extend-select = [
 
 [tool.ruff.lint.isort]
 force-single-line = true
+
+[tool.ty.rules]
+unused-ignore-comment = "error"

@@ -9,6 +9,7 @@ I start a new python project.
 - pytest
 - pre-commit: If you don't use it, you should start.
 - ruff: For all your linting and formatting needs.
+- ty: A type-checker from Astral **CURRENTLY IN ALPHA**! Use at your own risk.
 - uv: A fast package/environment manager
 - ipython: Run with `uv run ipython`. Nicer than regular interpreter
 - github actions: There are basic github action for CI

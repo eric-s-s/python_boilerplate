@@ -18,6 +18,7 @@ upgrade:
 
 lint:
 	uv run pre-commit run -a
+	uv run ty check
 .PHONY: lint
 
 
