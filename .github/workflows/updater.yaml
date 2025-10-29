@@ -1,9 +1,8 @@
 name: Update Dependencies
 on:
   workflow_dispatch:
-  # every monday at 10 AM
   schedule:
-  - cron:  '0 10 * * 1'
+  - cron:  '0 10 * * 1'  # every monday at 10 AM
 
 jobs:
   update-dep:
