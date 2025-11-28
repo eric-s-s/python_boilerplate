@@ -22,7 +22,7 @@ lint:
 
 
 test:
-	@echo "to add pytest args: `make test ARGS="--durations 5 -vv"`
+	@echo "to add pytest args: `make test ARGS="--durations 5 -vv"`"
 	uv run pytest $(ARGS)
 .PHONY: test
 
