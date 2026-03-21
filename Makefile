@@ -43,12 +43,15 @@ image:
 	-t $(image_tag_latest) \
 	-t $(image_tag_sha) \
 	--build-arg UV_VERSION=$(uv_version) \
+	--build-arg PYTHON_VERSION=$(python_version) \
 	--label git-shaw=$(shell git rev-parse HEAD) \
 	./
 .PHONY: image
 
+
 run-image:
-	docker run --rm -it $(image_tag_sha) /bin/sh
+	@echo "to add params to 'python': make run-image CMD='-m path.to.thing'"
+	docker run --rm -it $(image_tag_sha) $(CMD)
 
 testing:
 	echo $(file < UV_VERSION)

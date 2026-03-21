@@ -4,3 +4,7 @@ def my_func():
 
 def demo():
     print(f"my func shows: {my_func()}")
+
+
+if __name__ == "__main__":
+    demo()
