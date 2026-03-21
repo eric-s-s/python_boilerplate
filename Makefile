@@ -1,3 +1,15 @@
+help:
+	@echo "Usage: make <target>"
+	@echo "Targets:"
+	@echo "  install - install dependencies"
+	@echo "  upgrade - upgrade dependencies"
+	@echo "  lint - lint code"
+	@echo "  test - run tests"
+	@echo "  build - build package"
+	@echo "  image - build a docker image"
+	@echo "  run-image - run the docker image"
+.PHONY: help
+
 check-requirements:
 	uv --version
 .PHONY: check-requirements
@@ -22,7 +34,7 @@ lint:
 
 
 test:
-	@echo to add pytest args: make test ARGS='--durations 5 -vv'
+	@echo "to add pytest args: make test ARGS='--durations 5 -vv'"
 	uv run pytest $(ARGS)
 .PHONY: test
 
@@ -50,7 +62,7 @@ image:
 
 
 run-image:
-	@echo to add params to 'python': make run-image CMD='-m main.main'
-	@echo to add options like entrypoints: make run-image OPTIONS='--entrypoint demo-script'
-	@echo in general, using scripts can be very delicate with distroless images and you should avoid it.
+	@echo "to add params to 'python': make run-image CMD='-m main.main'"
+	@echo "to add options like entrypoints: make run-image OPTIONS='--entrypoint demo-script'"
+	@echo "in general, using scripts can be very delicate with distroless images and you should avoid it."
 	docker run --rm -it $(OPTIONS) $(image_tag_sha) $(CMD)
