@@ -1,6 +1,7 @@
 ARG UV_VERSION
-ARG DEV_IMAGE
-ARG APP_IMAGE
+ARG DEV_IMAGE=python:3.13-slim
+ARG APP_IMAGE=gcr.io/distroless/python3
+ARG APP_IMAGE=python:3.13-slim
 
 ARG BUILD_WORKDIR=/build
 ARG INSTALL_WORKDIR=/install
@@ -23,7 +24,6 @@ WORKDIR ${BUILD_WORKDIR}
 
 COPY . .
 
-USER root
 RUN uv build --no-cache
 RUN uv sync --locked --no-install-project --no-dev
 RUN uv pip freeze > requirements.txt
@@ -36,22 +36,20 @@ ARG BUILD_WORKDIR
 ARG INSTALL_WORKDIR
 ARG VENV_DIR
 
+COPY --from=uv-stage /uv /uvx /bin/
 WORKDIR ${INSTALL_WORKDIR}
 COPY --from=build-stage ${BUILD_WORKDIR}/dist ./dist
 COPY --from=build-stage ${BUILD_WORKDIR}/requirements.txt .
 
 ENV PATH="${VENV_DIR}/bin:$PATH"
-USER root
-RUN python3 -m venv --upgrade-deps ${VENV_DIR}
+RUN uv venv ${VENV_DIR}
 
-RUN pip install -r requirements.txt
-RUN pip install dist/*.whl
+RUN uv pip install -r requirements.txt
+RUN uv pip install --no-cache-dir dist/*.whl
 
 ##############
 FROM ${APP_IMAGE} AS run-stage
 
-RUN addgroup app && adduser -D -G app app_user
-USER app_user
 
 ARG APP_WORKDIR
 ARG VENV_DIR

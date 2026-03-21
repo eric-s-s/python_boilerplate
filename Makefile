@@ -43,14 +43,12 @@ image:
 	-t $(image_tag_latest) \
 	-t $(image_tag_sha) \
 	--build-arg UV_VERSION=$(uv_version) \
-	--build-arg APP_IMAGE=$(app_image) \
-	--build-arg DEV_IMAGE=$(dev_image) \
 	--label git-shaw=$(shell git rev-parse HEAD) \
 	./
 .PHONY: image
 
 run-image:
-	docker run --rm -it $(image_tag_sha)
+	docker run --rm -it $(image_tag_sha) /bin/sh
 
 testing:
 	echo $(file < UV_VERSION)
