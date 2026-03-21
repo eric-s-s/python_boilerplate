@@ -14,6 +14,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
 
+# If you are using distroless images, it's
+# not a good idea to use scripts. Instead,
+# your command should be `python -m path.to.file`
 [project.scripts]
 demo-script = "main.main:demo"
 

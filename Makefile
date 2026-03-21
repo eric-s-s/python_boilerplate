@@ -22,7 +22,7 @@ lint:
 
 
 test:
-	@echo "to add pytest args: make test ARGS='--durations 5 -vv'"
+	@echo to add pytest args: make test ARGS='--durations 5 -vv'
 	uv run pytest $(ARGS)
 .PHONY: test
 
@@ -50,8 +50,7 @@ image:
 
 
 run-image:
-	@echo "to add params to 'python': make run-image CMD='-m path.to.thing'"
-	docker run --rm -it $(image_tag_sha) $(CMD)
-
-testing:
-	echo $(file < UV_VERSION)
+	@echo to add params to 'python': make run-image CMD='-m main.main'
+	@echo to add options like entrypoints: make run-image OPTIONS='--entrypoint demo-script'
+	@echo in general, using scripts can be very delicate with distroless images and you should avoid it.
+	docker run --rm -it $(OPTIONS) $(image_tag_sha) $(CMD)
