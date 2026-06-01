@@ -22,7 +22,7 @@ demo-script = "main.main:demo"
 
 [dependency-groups]
 dev = [
-    "ipython>=9.2.0",
+    "ipython>=9.14.0",
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
     "ruff>=0.11.12",
