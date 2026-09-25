@@ -48,7 +48,7 @@ python_version := $(file < .python-version)
 app_image := alpine:latest
 dev_image := python:$(python_version)-alpine
 image_tag_latest := python-boilerplate:latest
-image_tag_sha := python-boilerprlate:$(shell git rev-parse HEAD)
+image_tag_sha := python-boilerplate:$(shell git rev-parse HEAD)
 
 image:
 	docker build --progress plain --no-cache \
@@ -56,7 +56,7 @@ image:
 	-t $(image_tag_sha) \
 	--build-arg UV_VERSION=$(uv_version) \
 	--build-arg PYTHON_VERSION=$(python_version) \
-	--label git-shaw=$(shell git rev-parse HEAD) \
+	--label git-sha=$(shell git rev-parse HEAD) \
 	./
 .PHONY: image
 
