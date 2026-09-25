@@ -11,7 +11,7 @@ name = "python-boilerplate"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = []
 
 # If you are using distroless images, it's
@@ -22,10 +22,10 @@ demo-script = "main.main:demo"
 
 [dependency-groups]
 dev = [
-    "ipython>=9.2.0",
-    "pre-commit>=4.2.0",
-    "pytest>=8.3.5",
-    "ruff>=0.11.12",
+    "ipython>=9.17.1",
+    "pre-commit>=4.6.2",
+    "pytest>=9.1.1",
+    "ruff>=0.16.9",
 ]
 
 [tool.ruff]
